@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>aframe-material😲😆😛</title>
+    <meta name="description" content="Aframe-Material">
+    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
+    <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+    <script src="https://cdn.rawgit.com/etiennepinchon/aframe-material/master/dist/aframe-material.min.js"></script>
+    <script type="text/javascript">
+      AFRAME.ASSETS_PATH = "./assets";
+    </script>
+  </head>
+  <body>
+    <a-scene>
+      <a-entity laser-controls="hand: right"></a-entity>
+
+      <a-entity> <a-camera look-controls-enabled wasd-controls-enabled mouse-cursor></a-camera></a-entity>
+
+      <!-- BEGIN INPUTS/KEYBOARD -->
+      <a-keyboard></a-keyboard>
+      <a-input position="-0.7 1 -2.5" placeholder="Email" color="black" width="1"></a-input>
+      <!-- END INPUTS/KEYBOARD -->
+
+      <!-- BEGIN FORM -->
+      <a-form>
+        <a-input position="-0.7 1.5 -2.5" placeholder="Email" color="black" width="1"></a-input>
+        <a-button position="-0.7 1 -2.5" name="stuff" height="1" value="Entrer" type="raised"></a-button>
+      </a-form>
+      <!-- END FORM -->
+
+      <!-- BEGIN TOAST -->
+      <a-toast message="This is a toast" action="Got it"></a-toast>
+      <!-- END TOAST -->
+
+      <!-- BEGIN ENVIRONEMENT -->
+      <a-gradient-sky material="shader: gradient; topColor: 255 0 0; bottomColor: 0 121 255;"></a-gradient-sky>
+      <!-- END ENVIRONEMENT -->
+    </a-scene>
+    <script type="text/javascript">
+      let button = document.querySelector('a-button');
+      let toast = document.querySelector('a-toast');
+      toast.addEventListener('actionclick', ()=>{
+        toast.hide();
+      })
+      button.addEventListener('click', ()=> {
+        toast.show();
+      })
+    </script>
+  </body>
+</html>
